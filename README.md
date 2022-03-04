@@ -23,8 +23,8 @@ The team profile generator is a CLI tool that goes through a series of questions
 ## Usage
 
 - Open a terminal window and navigate to the project folder
-- Run 'npm i' to install all project dependencies
-- Run 'node index' to run the tool.
+- Type 'npm i' to install all project dependencies
+- Type 'node index' to run the tool.
 - When done, your outputted HTML will be in the 'dist' folder
 
 ### Screenshot of CLI
