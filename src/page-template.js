@@ -1,6 +1,36 @@
 const generateHTML = (objEmployees) => {
     
-    const manager = objEmployees.filter(type => {type.getRole() === 'Manager'})
+    let manager = [];
+    for(let a=0;a<objEmployees.length;a++){
+        if(objEmployees[a].getRole() === 'Manager'){
+            manager = objEmployees[a];
+            break;
+        }
+    }
+
+    let engineerCards = '';
+    for(let a=0;a<objEmployees.length;a++){
+        if(objEmployees[a].getRole() === 'Engineer'){
+            const engineer = objEmployees[a];
+            const role = objEmployees[a].getRole();
+            engineerCards += `
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">${engineer.name}</h3>
+                        <h4>${role}</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">Employee ID: ${engineer.id}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
+                            <li class="list-group-item">GitHub: <a href="https://www.github.com/${engineer.gh}" target="_blank">${engineer.gh}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            `
+        }
+    }
+
 
     return `
     <!DOCTYPE html>
@@ -21,17 +51,18 @@ const generateHTML = (objEmployees) => {
                 <div class="col">
                 <div class="card">
                     <div class="card-body">
-                    <h3 class="card-title">${manager.name}</h3>
-                    <h4>Manager</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item">Employee ID: ${manager.id}</li>
-                        <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
-                        <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
-                    </ul>
+                        <h3 class="card-title">${manager.name}</h3>
+                        <h4>Manager</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">Employee ID: ${manager.id}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
+                            <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
+                        </ul>
                     </div>
                 </div>
                 </div>
 
+                ${engineerCards}
 
                 
             </div>
@@ -39,7 +70,7 @@ const generateHTML = (objEmployees) => {
         
     </body>
     </html>
-`
+    `
 
 
 //     <div class="col">
@@ -56,7 +87,7 @@ const generateHTML = (objEmployees) => {
 //         </div>
 //     </div>`;
 
-// }
+}
 
 module.exports = generateHTML;
 
