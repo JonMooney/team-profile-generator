@@ -22,7 +22,7 @@ const generateHTML = (objEmployees) => {
                         <ul class="list-group">
                             <li class="list-group-item">Employee ID: ${engineer.id}</li>
                             <li class="list-group-item">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
-                            <li class="list-group-item">GitHub: <a href="https://www.github.com/${engineer.gh}" target="_blank">${engineer.gh}</a></li>
+                            <li class="list-group-item">GitHub: <a href="https://www.github.com/${engineer.github}" target="_blank">${engineer.github}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ const generateHTML = (objEmployees) => {
                         <ul class="list-group">
                             <li class="list-group-item">Employee ID: ${intern.id}</li>
                             <li class="list-group-item">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
-                            <li class="list-group-item">GitHub: <a href="https://www.github.com/${intern.gh}" target="_blank">${intern.gh}</a></li>
+                            <li class="list-group-item">School: ${intern.school}</li>
                         </ul>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ const generateHTML = (objEmployees) => {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
         <title>Team Profile</title>
     </head>
     <body>

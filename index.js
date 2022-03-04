@@ -5,6 +5,7 @@ const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern');
 /* Required for generating HTML */
 const generateHTML = require('./src/page-template');
+const { writeFile, copyFile } = require('./src/generate-site');
 
 // Global object to hold manager, interns, and engineeers
 const objEmployees = [];
@@ -27,9 +28,14 @@ const main = async () => {
     }
 
     const html = generateHTML(objEmployees);
-    console.log(html);
+    
+    // Write index.html file to 'dist' folder
+    writeFile(html).then(msg => console.log(msg));
+    // Copy style.css from 'src' to 'dist' folder
+    copyFile().then(msg => console.log(msg));
 }
 
+// Main questions for loop
 const promptMain = async () => {
     return inquirer.prompt([
      {
@@ -41,6 +47,7 @@ const promptMain = async () => {
      ])
 }
 
+// Manager questions and new object creation
 const promptManager = async () => {
     const managerResults = await inquirer.prompt([
         {
@@ -108,6 +115,7 @@ const promptManager = async () => {
     objEmployees.push(manager);
 }
 
+// Engineer questions an object creation
 const promptEngineer = async () => {
     const engineerResults = await inquirer.prompt([
         {
@@ -172,6 +180,7 @@ const promptEngineer = async () => {
     objEmployees.push(engineer);
 }
 
+// Intern questions and object creation
 const promptIntern = async () => {
     const internResults = await inquirer.prompt([
     {
