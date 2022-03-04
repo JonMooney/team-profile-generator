@@ -1,27 +1,64 @@
-const writeHTML = (objEmployees) => {
-
+const generateHTML = (objEmployees) => {
+    
     const manager = objEmployees.filter(type => {type.getRole() === 'Manager'})
 
-
-
     return `
-    <div class="col">
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">${manager.name}</h3>
-                <h4>Manager</h4>
-                <ul class="list-group">
-                    <li class="list-group-item">Employee ID: 1234</li>
-                    <li class="list-group-item">Email: <a href="mailto:jon.mooney@yahoo.com">jon.mooney@yahoo.com</a></li>
-                    <li class="list-group-item">Office Number: 916-583-1455</li>
-                </ul>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <title>Team Profile</title>
+    </head>
+    <body>
+        <main>
+            <div class="banner">My Team</div>
+            
+            <div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
+                <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                    <h3 class="card-title">${manager.name}</h3>
+                    <h4>Manager</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">Employee ID: ${manager.id}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
+                        <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+
+
+                
             </div>
-        </div>
-    </div>`;
+        </main>
+        
+    </body>
+    </html>
+`
 
-}
 
-module.exports = writeHTML;
+//     <div class="col">
+//         <div class="card">
+//             <div class="card-body">
+//                 <h3 class="card-title">${manager.name}</h3>
+//                 <h4>Manager</h4>
+//                 <ul class="list-group">
+//                     <li class="list-group-item">Employee ID: 1234</li>
+//                     <li class="list-group-item">Email: <a href="mailto:jon.mooney@yahoo.com">jon.mooney@yahoo.com</a></li>
+//                     <li class="list-group-item">Office Number: 916-583-1455</li>
+//                 </ul>
+//             </div>
+//         </div>
+//     </div>`;
+
+// }
+
+module.exports = generateHTML;
 
 
 // // create the about section

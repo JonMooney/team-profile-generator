@@ -1,7 +1,9 @@
 const inquirer = require('inquirer');
+/* Require classes for object creation */
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern');
+/* Required for generating HTML */
 const generateHTML = require('./src/page-template');
 
 // Global object to hold manager, interns, and engineeers
