@@ -31,6 +31,31 @@ const generateHTML = (objEmployees) => {
         }
     }
 
+    let internCards = '';
+    for(let a=0;a<objEmployees.length;a++){
+        if(objEmployees[a].getRole() === 'Intern'){
+            const intern = objEmployees[a];
+            const role = objEmployees[a].getRole();
+            internCards += `
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">${intern.name}</h3>
+                        <h4>${role}</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">Employee ID: ${intern.id}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
+                            <li class="list-group-item">GitHub: <a href="https://www.github.com/${intern.gh}" target="_blank">${intern.gh}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            `
+        }
+    }
+
+
+
 
     return `
     <!DOCTYPE html>
@@ -64,6 +89,7 @@ const generateHTML = (objEmployees) => {
 
                 ${engineerCards}
 
+                ${internCards}
                 
             </div>
         </main>
