@@ -56,6 +56,6 @@ This project used Jest to test objects and methods during the creation of the to
 
 ## Questions
 
-View my [GitHub Page](https://github.com/UserName)
+View my [GitHub Page](https://github.com/JonMooney)
 
-Send me an email @ [username@gmail.com](mailto:username@gmail.com)
+Send me an email @ [jon.mooney@yahoo.com](mailto:jon.mooney@yahoo.com)
